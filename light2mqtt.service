@@ -1,0 +1,12 @@
+[Unit]
+# Human readable name of the unit
+Description=Light2MQTT - BH1750
+
+[Service]
+# Command to execute when the service is started
+ExecStart=/root/light2mqtt.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
