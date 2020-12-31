@@ -57,7 +57,6 @@ def detect_light(mqttclient,interval):
     """
     function to measure light every 1 sek and publish every X seconds.
     When light changes more than 10%, it will immidiately published
-    loop every 100ms
     """
     lightLevel = float(readLight())
     mqttclient.publish("CHANNEL/Light/state",
@@ -77,6 +76,7 @@ def detect_light(mqttclient,interval):
                                     qos=1,
                                     retain=True)
                 last_published = lightLevel
+                count = 0
             count += 1
             time.sleep(1)
 
